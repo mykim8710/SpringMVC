@@ -1,7 +1,15 @@
+# 서버 port 설정
 server:
   port: 3034
 
 logging:
   level:
-#    root: info                   # ?? ?? ?? ??(?? info)
-    com.example.springmvc: debug # com.example.springmvc ???? ? ?? ?? ?? ??
+#    root: info                  # default log mode = info, root
+    com.example.springmvc: debug # com.example.springmvc 하위 패키지에 debug 모드로 로그 작동
+
+# SpringBoot - thymeleaf 설정
+# 아래는 타임리프를 추가하면 default로 설정되어있다.
+#spring:
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    suffix: .html

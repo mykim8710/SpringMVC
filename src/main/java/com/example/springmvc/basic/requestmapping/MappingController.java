@@ -12,22 +12,24 @@ public class MappingController {
      * 둘다 허용 /hello-basic, /hello-basic/
      * HTTP 메서드 모두 허용 GET, HEAD, POST, PUT, PATCH, DELETE
      **/
-
     @RequestMapping("/hello-basic")
     public String helloBasic() {
         log.info("hello-basic");
         return "ok";
     }
 
+
     /**
      * method 특정 HTTP 메서드 요청만 허용
      * GET, HEAD, POST, PUT, PATCH, DELETE
      **/
+    // 맞지않으면 HTTP 405 상태코드(Method Not Allowed)를 반환한다.
     @RequestMapping(value = "/mapping-get-v1", method = RequestMethod.GET)
     public String mappingGetV1() {
         log.info("mappingGetV1");
         return "ok";
     }
+
 
     /**
      * 편리한 축약 애노테이션 (코드보기) * @GetMapping
@@ -54,6 +56,7 @@ public class MappingController {
         return "ok";
     }
 
+
     /**
      * PathVariable 사용 다중
      */
@@ -63,6 +66,7 @@ public class MappingController {
         log.info("mappingPath userId={}, orderId={}", userId, orderId);
         return "ok";
     }
+
 
     /**
      * 파라미터로 추가 매핑
@@ -78,6 +82,7 @@ public class MappingController {
         return "ok";
     }
 
+
     /**
      *특정 헤더로 추가 매핑
      * headers="mode",
@@ -90,6 +95,7 @@ public class MappingController {
         log.info("mappingHeader");
         return "ok";
     }
+
 
     /**
      * Content-Type 헤더 기반 추가 매핑 Media Type
@@ -106,6 +112,7 @@ public class MappingController {
         return "ok";
     }
 
+
     /**
      * Accept 헤더 기반 Media Type
      * produces = "text/html"
@@ -119,5 +126,4 @@ public class MappingController {
         log.info("mappingProduces");
         return "ok";
     }
-
 }
